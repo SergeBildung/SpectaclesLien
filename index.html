@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil — Tiers-Lieux | Spectacles Vivants</title>
+    <style>
+        /* === VARIABLES & RESET === */
+        :root {
+            --bg-color: #Fdfbf7; /* Sable très clair */
+            --box-bg: #FFFFFF;
+            --text-dark: #2c3e50;
+            --accent-green: #4CAF50; /* Touche de verdure */
+            --accent-green-hover: #45a049;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            background-image: url('https://drive.google.com/file/d/1dLRb8vuWrrC9amLMxTiA0Ca-rr3DkD8Q/view?usp=drivesdk'); /* Texture sable/verdure */
+            background-blend-mode: overlay;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        a { text-decoration: none; }
+        
+        /* === BOUTONS === */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn:hover { background-color: var(--accent-green-hover); }
+
+        /* === STRUCTURE COMMUNE === */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; color: var(--text-dark); }
+        h3 { font-size: 1.8em; margin-bottom: 20px; }
+
+        /* === HERO === */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-img { max-width: 80%; max-height: 50vh; margin-bottom: 30px; }
+
+        /* === SECTION 1: PROMESSE === */
+        .promesse-box {
+            background: var(--box-bg);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .promesse-img img { width: 100%; border-radius: 10px; }
+        .promesse-text ul { list-style-type: none; margin-top: 20px; }
+        .promesse-text li { margin-bottom: 10px; font-size: 1.1em; }
+
+        /* === SECTION 2: SPECTACLES === */
+        .spectacles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .spectacle-col { background: var(--box-bg); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .spectacle-col h3 { font-size: 1.5em; margin-bottom: 20px;}
+        
+        /* Carrousel CSS simple */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+        }
+        .carousel-item {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .carousel-item img { max-width: 100%; max-height: 300px; object-fit: contain; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent-green); color: var(--accent-green); }
+
+        /* === SECTION 4: AMBIANCE === */
+        .ambiance-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 0;
+            border-radius: 15px;
+        }
+        .ambiance-carousel img {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        .ambiance-subtitle { text-align: center; font-size: 1.5em; font-style: italic; margin-top: 20px; color: #555;}
+
+        /* === SECTION 6: A PROPOS === */
+        .apropos-box {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .apropos-img img { width: 100%; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .apropos-text p { margin-bottom: 15px; font-size: 1.1em; }
+
+        /* === SECTION 7: CONTACT === */
+        .contact { text-align: center; background: var(--box-bg); border-radius: 15px; padding: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .promesse-box, .spectacles-grid, .apropos-box { grid-template-columns: 1fr; }
+            .apropos-img img { max-width: 300px; margin: 0 auto; display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="https://drive.google.com/file/d/1f9Dzsi2Enje8AG82wrRA1oDmwkphYxQ6/view?usp=drivesdk" alt="Titre, slogan et signature" class="hero-img">
+        <a href="#contact" class="btn">👉 Accueillir un spectacle</a>
+    </header>
+
+    <section class="promesse" id="promesse">
+        <div class="promesse-box">
+            <div class="promesse-img">
+                <img src="https://drive.google.com/file/d/15cOQAmZqIGT7NBkvreZwC5EEsG5IEZOO/view?usp=drivesdk" alt="Illustration promesse">
+            </div>
+            <div class="promesse-text">
+                <h3>Un moment à vivre ensemble</h3>
+                <p>Et si un spectacle était un miroir, une joyeuse passerelle, une invitation à embrasser le foisonnement des aventures humaines, et à interroger en douceur nos propres postures ?</p>
+                <p><br>Je propose des formes légères, adaptables, qui viennent s’inscrire dans la vie du lieu.</p>
+                <p><em>On est touché. On s’y reconnaît. On en parle après.</em></p>
+                
+                <h3 style="margin-top: 30px; font-size: 1.4em;">Concrètement :</h3>
+                <ul>
+                    <li>🎭 Des solos incarnés, facétieux, accessibles</li>
+                    <li>🤝 Une proximité avec le public</li>
+                    <li>🌿 Des formes adaptées aux lieux vivants</li>
+                </ul>
+                <p><strong>Pas besoin de scène ni de dispositif lourd. Le spectacle s’invite là où les gens sont.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="spectacles" id="spectacles">
+        <h2>Les Spectacles</h2>
+        <div class="spectacles-grid">
+            
+            <div class="spectacle-col">
+                <h3>Les braderies de la Terre</h3>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="https://drive.google.com/file/d/1Ac7ig560kovXQ9EbXdoXeNDvNww-PnWb/view?usp=drivesdk" alt="Affiche Les Braderies de la Terre">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://drive.google.com/file/d/1Hs4eJw5tSmo2ModGlE0d-LS7MB74nYxm/view?usp=drivesdk" alt="Photo spectacle">
+                        <p style="margin-top: 15px;"><strong>Un cabaret écologiste entre rire, poésie, chansons, et réflexion collective.</strong><br>1h15, tous publics. Dispositif léger.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h4>Découvrir plus</h4>
+                        <div class="btn-group">
+                            <a href="https://kdrive.infomaniak.com/app/share/785585/5ca2d7f3-1e51-4c47-8dc5-f63772808547" target="_blank" class="btn">▶ Le Teaser</a>
+                            <a href="https://kdrive.infomaniak.com/app/share/785585/b7f5dd88-0048-4331-9b3a-084c616cca41" target="_blank" class="btn btn-outline">📄 Le Dossier</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('https://drive.google.com/file/d/1iqMqXADVgP9YPsIpJx-b-rqKCKbsJicY/view?usp=drivesdk'); background-size: cover; color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
+                        <h4 style="font-size: 1.5em; margin-bottom:10px;">Exposition pédagogique</h4>
+                        <p>Possibilité d'organiser un débat quelques jours avant le spectacle</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spectacle-col">
+                <h3>J'irai chanter du Brahms dans un supermarché</h3>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="https://drive.google.com/file/d/1L_iILG60tTE4dJ3g3H_G1xUYabSDhYl4/view?usp=drivesdk" alt="Affiche Brahms">
+                    </div>
+                    <div class="carousel-item">
+                        <p><strong>La journée déroutante d'un manager en crise.</strong><br><br>Tragi-comédie tendrement drôle, en alexandrins.<br>1h15, tous publics. Dispositif léger.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h4>Découvrir plus</h4>
+                        <div class="btn-group">
+                            <a href="https://kdrive.infomaniak.com/app/share/785585/42a72bd5-dcc3-4cb5-bfea-398415c7d9d7" target="_blank" class="btn">▶ Le Teaser</a>
+                            <a href="https://kdrive.infomaniak.com/app/share/785585/16ee63bc-885c-4766-8792-0316133654c0" target="_blank" class="btn btn-outline">📄 Le Dossier</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="ambiance">
+        <div class="ambiance-carousel">
+            <img src="https://drive.google.com/file/d/1yLsxwOk3M8TEH23q9gjY1rfdcprIU0-H/view?usp=drivesdk" alt="Ambiance 1">
+            <img src="https://drive.google.com/file/d/1zyUhw6J32MYwM2hAXIDEE9AwXB0z25-1/view?usp=drivesdk" alt="Ambiance 2">
+            <img src="https://drive.google.com/file/d/14KNwbZty7u7aACqYzbae8SeZZiKwokd3/view?usp=drivesdk" alt="Ambiance 3">
+        </div>
+        <p class="ambiance-subtitle">Un moment partagé, entre inconnus qui deviennent un peu moins inconnus.</p>
+    </section>
+
+    <section class="apropos" id="apropos">
+        <div class="apropos-box">
+            <div class="apropos-img">
+                <img src="https://drive.google.com/file/d/1QJE90h4rHSXCoRwyjS2RJFSp8QeBfslM/view?usp=drivesdk" alt="Portrait">
+            </div>
+            <div class="apropos-text">
+                <h3>Un parcours entre deux mondes</h3>
+                <p>Après 20 ans dans la transformation des organisations, je me suis tourné vers le théâtre.</p>
+                <p>Aujourd’hui, je crée des spectacles qui rendent visibles nos façons de penser, de décider, de nous raconter des histoires.</p>
+                <p>Sans chercher à convaincre. Mais en ouvrant des espaces de dialogue.</p>
+                <p>Créateur de passerelles, j'interviens également chez les particuliers, dans les établissements éducatifs, et dans les entreprises.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h3>Et si on en parlait ?</h3>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Vous avez un lieu, une envie, une intuition ?<br>Je serais heureux d’échanger avec vous.</p>
+            <a href="mailto:votre.email@exemple.com" class="btn" style="font-size: 1.2em; padding: 15px 40px;">👉 Me contacter</a>
+        </div>
+    </section>
+
+</body>
+</html>
+
